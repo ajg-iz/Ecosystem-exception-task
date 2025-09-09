@@ -1,15 +1,19 @@
 public class Main {
 
     public static void main(String[] args) {
-        StudentService studentService = new StudentService();
+        try {
+            StudentService studentService = new StudentService();
 
-        Student newStudent = Student.builder()
-                .name("Florian")
-                .subject("Geschichte")
-                .build();
+            Student newStudent = Student.builder()
+                    .name("Florian")
+                    .subject("Geschichte")
+                    .build();
 
-        Student savedStudent = studentService.addNewStudent(newStudent);
+            Student savedStudent = studentService.addNewStudent(newStudent);
 
-        System.out.println("Student saved: " + savedStudent);
+            System.out.println("Student saved: " + savedStudent);
+        } catch (Throwable t) {
+            System.out.println(t.getMessage());
+        }
     }
 }
